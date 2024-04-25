@@ -17,8 +17,4 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
-
-    fun asd(){
-        //ASdaskldhjkjdfgbhnjksdg
-    }
 }
