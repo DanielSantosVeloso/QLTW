@@ -10,13 +10,12 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="410dp"
-        android:layout_height="0dp"
+        android:layout_height="385dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="18dp"
         android:scaleType="center"
-        app:layout_constraintBottom_toTopOf="@+id/Email"
-        app:layout_constraintEnd_toEndOf="@+id/text_login"
-        app:layout_constraintStart_toEndOf="@+id/text_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/microsoftteams_image_removebg_preview" />
 
@@ -87,9 +86,10 @@
         android:id="@+id/text_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="169dp"
+        android:layout_marginStart="188dp"
         android:layout_marginTop="1dp"
         android:text="Login"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
