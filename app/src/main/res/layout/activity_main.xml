@@ -44,7 +44,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/buttonMenu"
         android:layout_width="32dp"
         android:layout_height="29dp"
         android:layout_marginTop="32dp"
@@ -69,22 +69,10 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="320dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="208dp"
-        android:layout_marginEnd="44dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:srcCompat="@drawable/dados2"
-        tools:ignore="DuplicateIds,MissingConstraints" />
-
-    <ImageView
         android:id="@+id/imageView15"
         android:layout_width="153dp"
         android:layout_height="56dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="212dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
@@ -95,7 +83,7 @@
         android:id="@+id/imageView15"
         android:layout_width="152dp"
         android:layout_height="56dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="48dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
@@ -103,7 +91,7 @@
         tools:ignore="DuplicateIds,MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/textSaida"
         android:layout_width="304dp"
         android:layout_height="49dp"
         android:layout_marginStart="45dp"
@@ -119,7 +107,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/textChegada"
         android:layout_width="302dp"
         android:layout_height="46dp"
         android:layout_marginStart="44dp"
@@ -133,5 +121,19 @@
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/buttonProcurar"
+        android:layout_width="106dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="153dp"
+        android:text="Procurar"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
