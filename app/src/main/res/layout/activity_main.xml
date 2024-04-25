@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <ImageView
@@ -21,9 +22,9 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="457dp"
-        android:layout_height="125dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="463dp"
+        android:layout_height="152dp"
+        android:layout_marginBottom="4dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,11 +34,12 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_width="159dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="3dp"
+        android:layout_width="154dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="308dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView7"
         app:srcCompat="@drawable/microsoftteams_image_removebg_preview"
@@ -135,5 +137,68 @@
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="377dp"
+        android:layout_height="226dp"
+        android:layout_marginTop="384dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ticket"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textSaidaExibir"
+        android:layout_width="57dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginBottom="95dp"
+        android:hint="GRU"
+        android:textColorHint="#D3555353"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textChegadaExibir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="95dp"
+        android:hint="GIG"
+        android:textColorHint="#D3555353"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textNomeExibir"
+        android:layout_width="38dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="272dp"
+        android:layout_marginBottom="51dp"
+        android:hint="Nome"
+        android:textColorHint="#D3555353"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
