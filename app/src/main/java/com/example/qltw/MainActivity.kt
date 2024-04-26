@@ -22,3 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun excluir(){}
 }
+fun melhorque2(){
+    val a = 20
+    //ala comentado ele
+}
