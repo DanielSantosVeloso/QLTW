@@ -1,12 +1,16 @@
 package com.example.qltw
 
 import android.os.Bundle
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var message: EditText;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -18,11 +22,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun asd(){
-
+        val a = 1;
+        if(a == 1){
+        }
     }
+
     fun excluir(){}
 }
 fun melhorque2(){
     val a = 20
     //ala comentado ele
+
 }
