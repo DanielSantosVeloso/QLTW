@@ -21,16 +21,4 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
-    fun asd(){
-        val a = 1;
-        if(a == 1){
-        }
-    }
-
-    fun excluir(){}
-}
-fun melhorque2(){
-    val a = 20
-    //ala comentado ele
-
 }
