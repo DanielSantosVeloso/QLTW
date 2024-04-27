@@ -1,6 +1,8 @@
 package com.example.qltw
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,9 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val registrarTexto: TextView = findViewById(R.id.msgcad)
+        registrarTexto.setOnClickListener{
+            val  intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
     }
-}
+}}
