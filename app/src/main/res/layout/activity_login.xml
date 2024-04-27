@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/"
     tools:context=".LoginActivity">
 
     <ImageView
@@ -33,7 +34,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+        />
 
     <EditText
         android:id="@+id/Senha"
@@ -53,7 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="23dp"
-        android:background="#0E52DD"
+        android:background="#0457FF"
+        android:backgroundTint="#0457FF"
+        android:backgroundTintMode="add"
         android:text="Logar"
         app:layout_constraintBottom_toTopOf="@+id/msgcad"
         app:layout_constraintEnd_toEndOf="parent"
