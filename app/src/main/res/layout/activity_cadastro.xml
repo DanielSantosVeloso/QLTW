@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:backgroundTint="#2342F1"
+        android:onClick="fazerCadastro"
         android:text="Cadastrar"
         app:cornerRadius="10sp"
         app:layout_constraintBottom_toTopOf="@+id/text_aviso_login"
