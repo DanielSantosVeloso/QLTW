@@ -12,65 +12,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="center"
+        app:layout_constraintBottom_toTopOf="@+id/Nome_cad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         app:srcCompat="@drawable/microsoftteams_image_removebg_preview" />
-
-    <EditText
-        android:id="@+id/Email_cad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/Senha_cad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <EditText
-        android:id="@+id/Senha_cad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="13dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Senha"
-        app:layout_constraintBottom_toTopOf="@+id/cadastrar"
-        app:layout_constraintEnd_toEndOf="@+id/Email_cad"
-        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/text_aviso_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="7dp"
         android:text="Já tem um cadastro? logue"
         app:layout_constraintBottom_toTopOf="@+id/red_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastrar" />
 
     <Button
         android:id="@+id/cadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="#2342F1"
         android:text="Cadastrar"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toTopOf="@+id/text_aviso_login"
-        app:layout_constraintStart_toStartOf="@+id/text_aviso_login" />
+        app:layout_constraintEnd_toEndOf="@+id/text_aviso_login"
+        app:layout_constraintTop_toBottomOf="@+id/Senha_cad" />
 
     <Button
         android:id="@+id/red_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#2342F1"
         android:text="Aqui!!"
+        app:cornerRadius="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/text_aviso_login" />
+        app:layout_constraintStart_toStartOf="@+id/text_aviso_login"
+        app:layout_constraintTop_toBottomOf="@+id/text_aviso_login" />
 
     <TextView
         android:id="@+id/text_cadastro"
@@ -81,4 +64,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Nome_cad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0457FF"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Nome de usuário"
+        app:layout_constraintBottom_toTopOf="@+id/Email_cad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <EditText
+        android:id="@+id/Email_cad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0457FF"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Email"
+        app:layout_constraintBottom_toTopOf="@+id/Senha_cad"
+        app:layout_constraintStart_toStartOf="@+id/Nome_cad"
+        app:layout_constraintTop_toBottomOf="@+id/Nome_cad"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/Senha_cad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:backgroundTint="#0457FF"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Senha"
+        app:layout_constraintBottom_toTopOf="@+id/cadastrar"
+        app:layout_constraintStart_toStartOf="@+id/Email_cad"
+        app:layout_constraintTop_toBottomOf="@+id/Email_cad"
+        tools:ignore="TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
