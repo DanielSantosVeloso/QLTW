@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         }
         val registrarTexto: TextView = findViewById(R.id.msgcad)
         registrarTexto.setOnClickListener{
-            val  intent = Intent(this, LoginActivity::class.java)
+            val  intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
     }
 }}
