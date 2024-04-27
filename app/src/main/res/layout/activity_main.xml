@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#CBEDF9"
     tools:context=".MainActivity">
 
     <ImageView
@@ -59,18 +59,6 @@
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="319dp"
-        android:layout_height="107dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="48dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:srcCompat="@drawable/dados2"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
         android:id="@+id/imageView15"
         android:layout_width="153dp"
         android:layout_height="56dp"
@@ -94,32 +82,41 @@
 
     <EditText
         android:id="@+id/textSaida"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="49dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="48dp"
+        android:background="#FF0000"
+
         android:ems="10"
         android:hint="Queda Reversa: GRU (Guarulhos - SP)"
         android:inputType="text"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/textChegada"
-        android:layout_width="302dp"
+        android:layout_width="0dp"
         android:layout_height="46dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="79dp"
-        android:layout_marginEnd="49dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="48dp"
+        android:background="#FF0000"
         android:ems="10"
         android:hint="Queda: GIG (Galeão - RJ)"
         android:inputType="text"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
