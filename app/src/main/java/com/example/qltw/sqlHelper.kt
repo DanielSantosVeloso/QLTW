@@ -65,7 +65,7 @@ class sqlHelper(private val context: Context):
     }
     fun lerUsuario(password: String, email: String): Boolean
     {
-       val db = readableDatabase
+        val db = readableDatabase
         val selection = "$COLUMN_EMAIL = ? AND $COLUMN_PASSWORD = ?"
         val selectionArgs = arrayOf(email,password)
         val cursor = db.query(TABLE_NAME,null, selection,selectionArgs, null, null, null)

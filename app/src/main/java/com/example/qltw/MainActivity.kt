@@ -75,16 +75,16 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Preencha os campos de Saída e Chegada", Toast.LENGTH_SHORT).show()
         }
     }
-    fun validacao(textoSaida: String, textoChegada: String):Boolean {
+    private fun validacao(textoSaida: String, textoChegada: String):Boolean {
         var validado = true
-        if (textoSaida.isBlank() || textoChegada.isBlank()) {
+        if (textoSaida.isBlank() && textoChegada.isBlank()) {
             validado = false
         }
         return validado
     }
 
     //enviando para a tela de compra
-    fun enviarParaCompra(saidaCheck: String, chegadaCheck: String){
+    private fun enviarParaCompra(saidaCheck: String, chegadaCheck: String){
         val intent = Intent(applicationContext, CompraActivity::class.java)
         intent.putExtra("saida", saidaCheck)
         intent.putExtra("chegada", chegadaCheck)

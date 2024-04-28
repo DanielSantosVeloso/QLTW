@@ -16,5 +16,8 @@ class CompraActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val dados: Bundle? = intent.extras
+        val escolhaApp = dados?.getString("escolhaApp")
+        val escolhaUsuario = dados?.getString("escolhaUsuario")
     }
 }
