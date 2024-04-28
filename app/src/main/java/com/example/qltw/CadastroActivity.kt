@@ -13,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 import android.content.Intent
 
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
@@ -46,16 +47,22 @@ class CadastroActivity : AppCompatActivity() {
             insets
         }
         val registrarTextos: TextView = findViewById(R.id.text_aviso_login)
-        registrarTextos.setOnClickListener{
-            val  intent = Intent(this, LoginActivity::class.java)
+        registrarTextos.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
 
 
+
+        }
+        val cadastrar:Button = findViewById(R.id.cadastrar)
+        cadastrar.setOnClickListener{
+            cadastroBasedeDados()
+
         }
 
-                }
+    }
 
-    private fun cadastroBase() {
+    private fun cadastroBasedeDados() {
         val NomeUsuario: EditText = findViewById(R.id.Nomecad)
         val passwordUsuario: EditText = findViewById(R.id.Senha_cad)
         val emailUsuario: EditText = findViewById(R.id.Email_cad)
@@ -65,15 +72,16 @@ class CadastroActivity : AppCompatActivity() {
 
 
         val colunaPeloID = sqlHelper.inserirUsuario(username, password, email)
-        if(colunaPeloID != -1L){
-            Toast.makeText(this,"Cadastro feito com sucesso", Toast.LENGTH_SHORT).show()
+        if (colunaPeloID != -1L) {
+            Toast.makeText(this, "Cadastro feito com sucesso", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-            finish()
-        }else{
-            Toast.makeText(this,"Erro no cadastro", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Erro no cadastro", Toast.LENGTH_SHORT).show()
         }
-
     }
 
+
 }
+
+

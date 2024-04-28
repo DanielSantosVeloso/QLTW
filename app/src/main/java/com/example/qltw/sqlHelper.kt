@@ -15,16 +15,17 @@ class sqlHelper(private val context: Context):
         private const val TABLE_NAME = "dados"
         private const val COLUMN_ID = "id"
         private const val COLUMN_USERNAME = "username"
-        private const val COLUMN_PASSWORD = "senha"
+        private const val COLUMN_PASSWORD = "password"
         private const val COLUMN_EMAIL = "email"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-      val createTableQuery = ("CREATE TABLE $TABLE_NAME ("+
+      val createTableQuery = ("CREATE TABLE $TABLE_NAME (" +
               "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
               "$COLUMN_USERNAME TEXT," +
               "$COLUMN_PASSWORD TEXT," +
-              "$COLUMN_EMAIL TEXT")
+              "$COLUMN_EMAIL TEXT)")
+
         db?.execSQL(createTableQuery)
     }
 
