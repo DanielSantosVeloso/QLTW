@@ -209,6 +209,7 @@
         android:layout_marginTop="68dp"
         android:layout_marginBottom="69dp"
         android:backgroundTint="#00819FEF"
+        android:onClick="menu"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -221,10 +222,14 @@
         android:id="@+id/nav_view"
         android:layout_width="126dp"
         android:layout_height="165dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/nav_menu"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="259dp"
-        tools:layout_editor_absoluteY="83dp" />
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
