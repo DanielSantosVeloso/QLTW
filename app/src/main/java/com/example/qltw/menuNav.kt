@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class CompraActivity : AppCompatActivity() {
+class menuNav  : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -18,13 +18,5 @@ class CompraActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val dados: Bundle? = intent.extras
-        val saida = dados?.getString("saida")
-        val chegada = dados?.getString("chegada")
-
-        when{
-
-        }
-
     }
 }

@@ -41,9 +41,14 @@ class MainActivity : AppCompatActivity() {
         navView.visibility = View.GONE
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.nav_sair -> Toast.makeText(this, "Sair", Toast.LENGTH_SHORT).show()
                 R.id.nav_carrinho -> Toast.makeText(this, "Carrinho", Toast.LENGTH_SHORT).show()
                 R.id.nav_inicial -> Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show()
+                R.id.nav_sair -> {
+                    Toast.makeText(this, "Voltando para a tela de Login", Toast.LENGTH_SHORT).show()
+                    val  intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }
             true
         }
@@ -67,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     //recebendo os dados escritos pelo usuario
     fun buttonProcurar(view: View) {
         val validSaida = textSaida.text.toString()
-        val validChegada = textSaida.text.toString()
+        val validChegada = textChegada.text.toString()
         val validando = validacao(validSaida, validChegada)
         if(validando){
             enviarParaCompra(validSaida, validChegada)
@@ -89,5 +94,10 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("saida", saidaCheck)
         intent.putExtra("chegada", chegadaCheck)
         startActivity(intent)
+    }
+
+    fun voltar(view: View){
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        finish()
     }
 }
