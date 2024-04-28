@@ -16,7 +16,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="1dp"
         android:scaleType="center"
-        app:layout_constraintBottom_toTopOf="@+id/Nome_cad"
+        app:layout_constraintBottom_toTopOf="@+id/Nomecad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_cadastro"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Nome_cad"
+        android:id="@+id/Nomecad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
@@ -83,7 +83,7 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nome_cad"
+        app:layout_constraintTop_toBottomOf="@+id/Nomecad"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
