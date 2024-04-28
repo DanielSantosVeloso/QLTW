@@ -12,11 +12,19 @@ class sqlHelper(private val context: Context):
     companion object{
         private const val DATABASE_NAME = "BancoUsuario.db"
         private const val DATABASE_VERSION = 1
+        //tabelas
         private const val TABLE_NAME = "dados"
+        private const val CARRINHO = "carrinho"
+        //usuarios
         private const val COLUMN_ID = "id"
         private const val COLUMN_USERNAME = "username"
         private const val COLUMN_PASSWORD = "password"
         private const val COLUMN_EMAIL = "email"
+        //carrinho
+        private const val CARRINHO_ID = "carrinhoId"
+        private const val CARRINHO_SAIDA = "carrinhoSaida"
+        private const val CARRINHO_CHEGADA = "carrinhoChegada"
+        private const val CARRINHO_VALOR = "carrinhoValor"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -27,6 +35,16 @@ class sqlHelper(private val context: Context):
               "$COLUMN_EMAIL TEXT)")
 
         db?.execSQL(createTableQuery)
+
+        val createCarrinho = ("CREATE TABLE $CARRINHO (" +
+                "$CARRINHO_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "$CARRINHO_SAIDA TEXT," +
+                "$CARRINHO_CHEGADA TEXT)," +
+                "$CARRINHO_VALOR TEXT)," +
+                "$COLUMN_ID INTEGER NOT NULL," +
+                "FOREIGN KEY ($COLUMN_ID) REFERENCES $TABLE_NAME ($COLUMN_ID))")
+
+        db?.execSQL(createCarrinho)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -55,5 +73,8 @@ class sqlHelper(private val context: Context):
         val usuarioExiste = cursor.count > 0
         cursor.close()
         return usuarioExiste
+    }
+    fun recebendoDados(Saida: String, Chegada: String){
+
     }
   }
