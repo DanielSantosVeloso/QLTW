@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("saida", saidaCheck)
         intent.putExtra("chegada", chegadaCheck)
         startActivity(intent)
+        finish()
     }
 
     fun voltar(view: View){

@@ -34,24 +34,34 @@ class LoginActivity : AppCompatActivity() {
         Logar.setOnClickListener{
             loginBase()
 }
-
-
 }
-
     private fun loginBase() {
         val EmailLogin:EditText = findViewById(R.id.editEmail)
         val senhaLogin:EditText = findViewById(R.id.editSenha)
         val email = EmailLogin.text.toString()
         val password = senhaLogin.text.toString()
+        val validando = validacao(email, password)
 
-        val usuarioExiste = sqlHelper.lerUsuario(password,email)
-        if(usuarioExiste){
-            Toast.makeText(this, "Login feito com sucesso",Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        } else{
-            Toast.makeText(this,"Login falho",Toast.LENGTH_SHORT).show()
-
+        if(validando){
+            val usuarioExiste = sqlHelper.lerUsuario(password,email)
+            if(usuarioExiste){
+                Toast.makeText(this, "Login feito com sucesso",Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else{
+                Toast.makeText(this,"Login falhou, tente novamente",Toast.LENGTH_SHORT).show()
+            }
+        }else{
+            Toast.makeText(this, "Preencha os campos para realizar o Login", Toast.LENGTH_SHORT).show()
         }
-    }}
+
+    }
+    private fun validacao(emailUsuario: String, senhaUsuario: String):Boolean {
+        var validado = true
+        if (emailUsuario.isBlank() || senhaUsuario.isBlank()) {
+            validado = false
+        }
+        return validado
+    }
+}

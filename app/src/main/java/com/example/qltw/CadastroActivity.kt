@@ -63,18 +63,36 @@ class CadastroActivity : AppCompatActivity() {
         val password = passwordUsuario.text.toString()
         val email = emailUsuario.text.toString()
 
+        val usuarioExiste = sqlHelper.existeUsuario(email)
 
-        val colunaPeloID = sqlHelper.inserirUsuario(username, password, email)
-        if (colunaPeloID != -1L) {
-            Toast.makeText(this, "Cadastro feito com sucesso", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        } else {
-            Toast.makeText(this, "Erro no cadastro", Toast.LENGTH_SHORT).show()
+        val validando = validacao(email, password, username)
+
+        if(validando){
+            if(usuarioExiste){
+                Toast.makeText(this, "Email ja cadastrado", Toast.LENGTH_SHORT).show()
+            }else{
+                val colunaPeloID = sqlHelper.inserirUsuario(username, password, email)
+                if (colunaPeloID != -1L) {
+                    Toast.makeText(this, "Cadastro feito com sucesso", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "Erro no cadastro", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }else{
+            Toast.makeText(this, "Preencha os campos para realizar o Cadastro", Toast.LENGTH_SHORT).show()
         }
+
     }
-
-
+    private fun validacao(emailUsuario: String, senhaUsuario: String, nomeUsuario: String):Boolean {
+        var validado = true
+        if (emailUsuario.isBlank() || senhaUsuario.isBlank() || nomeUsuario.isBlank()) {
+            validado = false
+        }
+        return validado
+    }
 }
 
 
