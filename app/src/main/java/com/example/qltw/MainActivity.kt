@@ -3,17 +3,14 @@ package com.example.qltw
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -28,6 +25,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonBefore : ImageButton
     lateinit var toggle: ActionBarDrawerToggle
     var contador=0
+    private lateinit var textSaidaExibir:TextView
+    private lateinit var textChegadaExibir:TextView
+    private lateinit var textNomeExibir:TextView
+    private val ticket =(listOf(
+ticket("SP","RJ","1500"),
+        ticket("FAR","MG","2500"),
+        ticket("GO","MA","4000"),
+    ))
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,16 +42,24 @@ class MainActivity : AppCompatActivity() {
 
         textSaida = findViewById(R.id.textSaida)
         textChegada = findViewById(R.id.textChegada)
+        textSaidaExibir =findViewById(R.id.textSaidaExibir)
+        textChegadaExibir = findViewById(R.id.textChegadaExibir)
+        textNomeExibir = findViewById(R.id.textNomeExibir)
 
         buttonNext = findViewById(R.id.Button_next)
         buttonBefore = findViewById(R.id.Button_before)
         buttonNext.setOnClickListener{
            next()
+            ChangeTicket()
         }
         buttonBefore.setOnClickListener{
            before()
+            ChangeTicket()
         }
 
+
+
+        //botão de menu
         val buttonMenu : ImageButton = findViewById(R.id.buttonMenu)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
@@ -75,11 +88,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        ChangeTicket()
     }
 
     //recebendo os dados escritos pelo usuario
@@ -110,7 +125,7 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
  private fun next(){
-     if(contador>=3) {
+     if(contador>=2) {
 
          Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
      }
@@ -135,5 +150,32 @@ class MainActivity : AppCompatActivity() {
     fun voltar(view: View){
         val intent = Intent(applicationContext, MainActivity::class.java)
         finish()
+    }
+    private fun ChangeTicket(){
+        //escolhendo texto do ticket
+        val textAtual = ticket[contador]
+
+
+        when(contador){
+
+            0->{
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+
+            }
+            1->{
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textSaidaExibir.text = textAtual.saida.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            2->{
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+
+        }
+
     }
 }
