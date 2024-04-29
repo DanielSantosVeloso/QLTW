@@ -109,26 +109,26 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
- fun next(){
+ private fun next(){
      if(contador>=3) {
-         buttonNext.isEnabled = false
-         buttonNext.isClickable = false
+
+         Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
      }
      else{
-         buttonNext.isEnabled = true
-         buttonNext.isClickable = true
+
          contador++
+         Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
      }
  }
-    fun before(){
+    private fun before(){
         if(contador<=0){
-            buttonBefore.isEnabled = false
-            buttonBefore.isClickable = false
+
+            Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
         }
         else{
-            buttonBefore.isEnabled = true
-            buttonBefore.isClickable = true
+
             contador--
+            Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
         }
 
     }
