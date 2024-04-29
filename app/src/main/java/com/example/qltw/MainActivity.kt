@@ -24,8 +24,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var message: EditText;
     private lateinit var textSaida : EditText
     private lateinit var textChegada : EditText
+    private lateinit var buttonNext : ImageButton
+    private lateinit var buttonBefore : ImageButton
     lateinit var toggle: ActionBarDrawerToggle
+    var contador=0
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,6 +37,15 @@ class MainActivity : AppCompatActivity() {
 
         textSaida = findViewById(R.id.textSaida)
         textChegada = findViewById(R.id.textChegada)
+
+        buttonNext = findViewById(R.id.Button_next)
+        buttonBefore = findViewById(R.id.Button_before)
+        buttonNext.setOnClickListener{
+           next()
+        }
+        buttonBefore.setOnClickListener{
+           before()
+        }
 
         val buttonMenu : ImageButton = findViewById(R.id.buttonMenu)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -96,7 +109,29 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+ fun next(){
+     if(contador>=3) {
+         buttonNext.isEnabled = false
+         buttonNext.isClickable = false
+     }
+     else{
+         buttonNext.isEnabled = true
+         buttonNext.isClickable = true
+         contador++
+     }
+ }
+    fun before(){
+        if(contador<=0){
+            buttonBefore.isEnabled = false
+            buttonBefore.isClickable = false
+        }
+        else{
+            buttonBefore.isEnabled = true
+            buttonBefore.isClickable = true
+            contador--
+        }
 
+    }
     fun voltar(view: View){
         val intent = Intent(applicationContext, MainActivity::class.java)
         finish()
