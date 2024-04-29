@@ -65,3 +65,6 @@ class LoginActivity : AppCompatActivity() {
         return validado
     }
 }
+
+
+

@@ -3,17 +3,13 @@ package com.example.qltw
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -88,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         val validChegada = textChegada.text.toString()
         val validando = validacao(validSaida, validChegada)
         if(validando){
-            enviarParaCompra(validSaida, validChegada)
+            enviarParaProblemas(validSaida, validChegada)
         }else{
             Toast.makeText(this, "Preencha os campos de Saída e Chegada", Toast.LENGTH_SHORT).show()
         }
@@ -102,38 +98,40 @@ class MainActivity : AppCompatActivity() {
     }
 
     //enviando para a tela de compra
-    private fun enviarParaCompra(saidaCheck: String, chegadaCheck: String){
-        val intent = Intent(applicationContext, CompraActivity::class.java)
+    private fun enviarParaProblemas(saidaCheck: String, chegadaCheck: String){
+        val intent = Intent(applicationContext, ProblemasActivity::class.java)
         intent.putExtra("saida", saidaCheck)
         intent.putExtra("chegada", chegadaCheck)
         startActivity(intent)
         finish()
     }
- private fun next(){
-     if(contador>=3) {
 
-         Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
-     }
-     else{
+    //Botao next, passa para o proximo ticket
+    private fun next(){
+        if(contador>=3) {
+        Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
+        }
+        else{
+            contador++
+            Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
+        }
+    }
 
-         contador++
-         Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
-     }
- }
+    //Botao before, volta para o ticket anterior
     private fun before(){
         if(contador<=0){
-
             Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
         }
         else{
-
             contador--
             Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
         }
 
     }
+
+    //Precisa de comentario? Só um botao que volta pro Login
     fun voltar(view: View){
-        val intent = Intent(applicationContext, MainActivity::class.java)
+        val intent = Intent(applicationContext, LoginActivity::class.java)
         finish()
     }
 }

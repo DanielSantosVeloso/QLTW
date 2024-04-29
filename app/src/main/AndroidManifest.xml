@@ -19,7 +19,7 @@
             android:name=".CarrinhoActivity"
             android:exported="false" />
         <activity
-            android:name=".CompraActivity"
+            android:name=".ProblemasActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
