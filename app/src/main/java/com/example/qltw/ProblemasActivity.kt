@@ -3,27 +3,32 @@ package com.example.qltw
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
+import com.google.android.material.navigation.NavigationView
 
 class ProblemasActivity : AppCompatActivity() {
     private lateinit var saidaV: TextView
     private lateinit var chegadaV: TextView
     private lateinit var valorV: TextView
-    private lateinit var sqlHelper: sqlHelper
-    private lateinit var problema1: TextView
+
     private lateinit var problemaB1: Button
     private lateinit var problemaB2: Button
-    private lateinit var problema2: TextView
-    private lateinit var problema3: TextView
-    private lateinit var problema4: TextView
-    private lateinit var problema5: TextView
+    private lateinit var problemaB3: Button
+    private lateinit var problemaB4: Button
+    private lateinit var problemaB5: Button
+
     private lateinit var descricao: TextView
-    private lateinit var buttonVoltar: Button
+    private lateinit var buttonVoltar: ImageButton
+
     private var contador = 0
     private var problemaSelecionado = 0
 
@@ -53,14 +58,12 @@ class ProblemasActivity : AppCompatActivity() {
         saidaV = findViewById(R.id.textSaidaProblema)
         chegadaV = findViewById(R.id.textoChegadaProblema)
         valorV = findViewById(R.id.textValorProblema)
-        problema1 = findViewById(R.id.problema1)
-        problema2 = findViewById(R.id.problema2)
-        problema3 = findViewById(R.id.problema3)
-        problema4 = findViewById(R.id.problema4)
-        problema5 = findViewById(R.id.problema5)
-        descricao = findViewById(R.id.descricao)
         problemaB1 = findViewById(R.id.problemaB1)
         problemaB2 = findViewById(R.id.problemaB2)
+        problemaB3 = findViewById(R.id.problemaB3)
+        problemaB4 = findViewById(R.id.problemaB4)
+        problemaB5 = findViewById(R.id.problemaB5)
+        descricao = findViewById(R.id.descricao)
         buttonVoltar = findViewById(R.id.buttonVoltar)
 
         //recebendo os dados de MainActivity
@@ -77,6 +80,9 @@ class ProblemasActivity : AppCompatActivity() {
 
         problemaB1.setOnClickListener { problemaSelecionado = 0; changeDescricao() }
         problemaB2.setOnClickListener { problemaSelecionado = 1; changeDescricao() }
+        problemaB3.setOnClickListener { problemaSelecionado = 2; changeDescricao() }
+        problemaB4.setOnClickListener { problemaSelecionado = 3; changeDescricao() }
+        problemaB5.setOnClickListener { problemaSelecionado = 4; changeDescricao() }
 
         buttonVoltar.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)
@@ -90,27 +96,27 @@ class ProblemasActivity : AppCompatActivity() {
         val probAtual = problemas[contador]
         when(contador) {
             0 -> {
-                problema1.text = probAtual.texto1
-                problema2.text = probAtual.texto2
-                problema3.text = probAtual.texto3
-                problema4.text = probAtual.texto4
-                problema5.text = probAtual.texto5
+                problemaB1.text = probAtual.texto1
+                problemaB2.text = probAtual.texto2
+                problemaB3.text = probAtual.texto3
+                problemaB4.text = probAtual.texto4
+                problemaB5.text = probAtual.texto5
             }
 
             1 -> {
-                problema1.text = probAtual.texto1
-                problema2.text = probAtual.texto2
-                problema3.text = probAtual.texto3
-                problema4.text = probAtual.texto4
-                problema5.text = probAtual.texto5
+                problemaB1.text = probAtual.texto1
+                problemaB2.text = probAtual.texto2
+                problemaB3.text = probAtual.texto3
+                problemaB4.text = probAtual.texto4
+                problemaB5.text = probAtual.texto5
             }
 
             2 -> {
-                problema1.text = probAtual.texto1
-                problema2.text = probAtual.texto2
-                problema3.text = probAtual.texto3
-                problema4.text = probAtual.texto4
-                problema5.text = probAtual.texto5
+                problemaB1.text = probAtual.texto1
+                problemaB2.text = probAtual.texto2
+                problemaB3.text = probAtual.texto3
+                problemaB4.text = probAtual.texto4
+                problemaB5.text = probAtual.texto5
             }
         }
     }

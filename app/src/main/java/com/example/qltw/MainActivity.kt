@@ -163,6 +163,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, LoginActivity::class.java)
         finish()
     }
+
     private fun changeTicket(){
         //escolhendo texto do ticket
         val textAtual = ticket[contador]

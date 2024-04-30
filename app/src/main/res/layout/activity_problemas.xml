@@ -9,211 +9,322 @@
     tools:context=".ProblemasActivity">
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/image_removebg_preview"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="340dp"
-        android:layout_height="197dp"
-        android:src="@drawable/ticket"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView4"
+        android:layout_width="750dp"
+        android:layout_height="183dp"
+        android:layout_marginTop="-40dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595"
+        app:srcCompat="@drawable/baseline_square_24"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="411dp"
+        android:layout_height="285dp"
+        android:layout_marginTop="144dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/image_removebg_preview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="412dp"
+        android:layout_height="298dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/image_removebg_preview"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/descricao"
+        android:layout_width="335dp"
+        android:layout_height="234dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="37dp"
+        android:hint="Após selecionar qual problema queira ver, os detalhes aparecerão aqui."
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="204dp"
+        android:layout_marginBottom="206dp"
+        android:text="Problemas relacionados:"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="196dp"
         android:layout_height="4dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="184dp"
         android:scaleType="centerCrop"
         android:src="@drawable/baseline_rectangle_24"
+        app:layout_constraintBottom_toTopOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="DuplicateIds,MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Problemas relacionados:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.143"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="DuplicateIds,MissingConstraints,NotSibling" />
 
     <TextView
         android:id="@+id/textoChegadaProblema"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="68dp"
+        android:layout_height="32dp"
         android:hint="Chegada"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/textSaidaProblema"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textSaidaProblema"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.399" />
 
     <TextView
         android:id="@+id/textValorProblema"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="49dp"
         android:hint="Valor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.264" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toStartOf="@+id/textoChegadaProblema"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="113dp"
-        android:layout_height="245dp"
-        android:layout_marginStart="257dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="80dp"
+        android:layout_width="282dp"
+        android:layout_height="193dp"
+        android:layout_marginTop="49dp"
         android:scaleType="centerCrop"
         android:src="@drawable/baseline_rectangle_24"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-        app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.285"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="DuplicateIds,MissingConstraints" />
 
     <TextView
         android:id="@+id/textSaidaProblema"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="68dp"
+        android:layout_height="32dp"
         android:hint="Saida"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
-
-    <TextView
-        android:id="@+id/problema1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="281dp"
-        android:layout_marginTop="114dp"
-        android:layout_marginEnd="93dp"
-        android:layout_marginBottom="227dp"
-        android:hint="Brutal"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/problema2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Manzinho"
-        app:layout_constraintEnd_toEndOf="@+id/problema1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/problema1"
-        app:layout_constraintTop_toBottomOf="@+id/problema1"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/problema3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Fade"
-        app:layout_constraintEnd_toEndOf="@+id/problema2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/problema2"
-        app:layout_constraintTop_toBottomOf="@+id/problema2" />
-
-    <TextView
-        android:id="@+id/problema4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Nami"
-        app:layout_constraintEnd_toEndOf="@+id/problema3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/problema3"
-        app:layout_constraintTop_toBottomOf="@+id/problema3" />
-
-    <TextView
-        android:id="@+id/problema5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Gwen"
-        app:layout_constraintEnd_toEndOf="@+id/problema4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/problema4"
-        app:layout_constraintTop_toBottomOf="@+id/problema4" />
-
-    <Button
-        android:id="@+id/buttonVoltar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Voltar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.897"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/descricao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="descricao"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="241dp" />
+        app:layout_constraintVertical_bias="0.272" />
 
     <Button
         android:id="@+id/problemaB1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.803"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.897" />
+        android:layout_width="224dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="31dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00000000"
+        android:hint="Sample"
+        android:textAlignment="viewStart"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/imageView10"
+        app:strokeColor="#00F80000"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="143dp"
+        android:layout_height="102dp"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="429dp"
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:srcCompat="@drawable/microsoftteams_image_removebg_preview"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/problemaB2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="224dp"
+        android:layout_height="33dp"
+        android:background="#00A33838"
+        android:backgroundTint="#00171616"
+        android:hint="Sample"
+        android:lineSpacingExtra="10sp"
+        android:textAlignment="viewStart"
+        android:textColorHighlight="#FF0D0D"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:barrierMargin="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="@+id/problemaB1"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="@+id/problemaB1"
+        app:layout_constraintTop_toBottomOf="@+id/problemaB1"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/problemaB3"
+        android:layout_width="224dp"
+        android:layout_height="33dp"
+        android:background="#00FFFFFF"
+        android:hint="Sample"
+        android:textAlignment="viewStart"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/problemaB2"
+        app:layout_constraintStart_toStartOf="@+id/problemaB2"
+        app:layout_constraintTop_toBottomOf="@+id/problemaB2"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/problemaB5"
+        android:layout_width="224dp"
+        android:layout_height="33dp"
+        android:background="#00FFFFFF"
+        android:hint="Sample"
+        android:textAlignment="viewStart"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/problemaB4"
+        app:layout_constraintStart_toStartOf="@+id/problemaB4"
+        app:layout_constraintTop_toBottomOf="@+id/problemaB4"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/problemaB4"
+        android:layout_width="224dp"
+        android:layout_height="48dp"
+        android:background="#00FFFFFF"
+        android:hint="Sample"
+        android:textAlignment="viewStart"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/problemaB3"
+        app:layout_constraintStart_toStartOf="@+id/problemaB3"
+        app:layout_constraintTop_toBottomOf="@+id/problemaB3" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="89dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="48dp"
+        android:text="Valor:"
+        android:textColor="#E2141840"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textoChegadaProblema"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textoChegadaProblema"
+        app:layout_constraintTop_toBottomOf="@+id/textoChegadaProblema"
+        tools:ignore="DuplicateIds" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="51dp"
+        android:layout_height="23dp"
+        android:text="R$"
+        android:textColor="#E2141840"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.782"
+        tools:ignore="DuplicateIds,MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_height="148dp"
+        android:layout_marginStart="-100dp"
+        android:layout_marginTop="656dp"
+        android:layout_marginEnd="-100dp"
+        android:contentDescription="next"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.827" />
+        app:srcCompat="@drawable/image_removebg_preview" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="256dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="98dp"
+        android:text="© 2024 QuedaLivre - All Rights Reserved"
+        android:textColor="#0C185A"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/buttonVoltar"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.378"
+        app:srcCompat="@drawable/baseline_exit_to_app_24"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
