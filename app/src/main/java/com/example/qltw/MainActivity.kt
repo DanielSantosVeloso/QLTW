@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonNext : ImageButton
     private lateinit var buttonBefore : ImageButton
     private lateinit var buttonProblemas : Button
+    private lateinit var buttonProcura:Button
+    var contProc2 = 0
     var contador=0
     var saidaCheckV = ""
     var chegadaCheckV = ""
@@ -51,9 +53,11 @@ class MainActivity : AppCompatActivity() {
         textChegadaExibir = findViewById(R.id.textChegadaExibir)
         textNomeExibir = findViewById(R.id.textNomeExibir)
         buttonProblemas = findViewById(R.id.buttonProblemas)
-
+        buttonProcura = findViewById(R.id.buttonProcurar)
         buttonNext = findViewById(R.id.Button_next)
         buttonBefore = findViewById(R.id.Button_before)
+
+
         buttonNext.setOnClickListener{
            next()
             changeTicket()
@@ -65,6 +69,9 @@ class MainActivity : AppCompatActivity() {
 
         buttonProblemas.setOnClickListener{
             verProblemas(saidaCheckV, chegadaCheckV, valorCheckV, contador)
+        }
+        buttonProcura.setOnClickListener {
+            ProcuraTicket()
         }
 
         //botão de menu
@@ -162,6 +169,37 @@ class MainActivity : AppCompatActivity() {
     fun voltar(view: View){
         val intent = Intent(applicationContext, LoginActivity::class.java)
         finish()
+    }
+    private fun ProcuraTicket(){
+
+        var achou = 0
+        val Saidatextinho = textSaida.text.toString()
+        val Chegadatextinho = textChegada.text.toString()
+
+        for(contProc in 0..5 ){
+
+            val contAtual = ticket[contProc2]
+
+            if(Saidatextinho == contAtual.saida && Chegadatextinho == contAtual.chegada) {
+                contador = contProc2
+                changeTicket()
+                achou = 1
+
+            }
+            else{
+                contProc2++
+
+            }
+        }
+        if(achou == 0){
+
+            Toast.makeText(this,"Ticket não disponivel",Toast.LENGTH_SHORT).show()
+        }
+        contProc2 = 0
+        achou = 0
+
+
+
     }
     private fun changeTicket(){
         //escolhendo texto do ticket
