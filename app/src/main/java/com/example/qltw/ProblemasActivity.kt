@@ -75,10 +75,8 @@ class ProblemasActivity : AppCompatActivity() {
         valorV.text = valor
         changePerguntas()
 
-        val descAtual = descricoes[problemaSelecionado]
-
-        problemaB1.setOnClickListener { descricao.text = descAtual.descricao1}
-        problemaB2.setOnClickListener { descricao.text = descAtual.descricao2 }
+        problemaB1.setOnClickListener { problemaSelecionado = 0; changeDescricao() }
+        problemaB2.setOnClickListener { problemaSelecionado = 1; changeDescricao() }
 
         buttonVoltar.setOnClickListener {
             val intent = Intent(applicationContext, MainActivity::class.java)
@@ -90,7 +88,7 @@ class ProblemasActivity : AppCompatActivity() {
 
     private fun changePerguntas() {
         val probAtual = problemas[contador]
-        when (contador) {
+        when(contador) {
             0 -> {
                 problema1.text = probAtual.texto1
                 problema2.text = probAtual.texto2
@@ -121,14 +119,31 @@ class ProblemasActivity : AppCompatActivity() {
         val descAtual = descricoes[contador]
         when (contador) {
             0 -> {
-                descricao.text = descAtual.descricao1
+                when(problemaSelecionado) {
+                    0 -> { descricao.text = descAtual.descricao1 }
+                    1 -> { descricao.text = descAtual.descricao2 }
+                    2 -> { descricao.text = descAtual.descricao3 }
+                    3 -> { descricao.text = descAtual.descricao4 }
+                    4 -> { descricao.text = descAtual.descricao5 }
+                }
             }
             1 -> {
-                descricao.text = descAtual.descricao1
+                when(problemaSelecionado) {
+                    0 -> { descricao.text = descAtual.descricao1 }
+                    1 -> { descricao.text = descAtual.descricao2 }
+                    2 -> { descricao.text = descAtual.descricao3 }
+                    3 -> { descricao.text = descAtual.descricao4 }
+                    4 -> { descricao.text = descAtual.descricao5 }
+                }
             }
-
             2 -> {
-                descricao.text = descAtual.descricao3
+                when(problemaSelecionado) {
+                    0 -> { descricao.text = descAtual.descricao1 }
+                    1 -> { descricao.text = descAtual.descricao2 }
+                    2 -> { descricao.text = descAtual.descricao3 }
+                    3 -> { descricao.text = descAtual.descricao4 }
+                    4 -> { descricao.text = descAtual.descricao5 }
+                }
             }
         }
     }
