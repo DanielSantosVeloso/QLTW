@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonNext : ImageButton
     private lateinit var buttonBefore : ImageButton
     private lateinit var buttonProblemas : Button
-    lateinit var toggle: ActionBarDrawerToggle
     var contador=0
     var saidaCheckV = ""
     var chegadaCheckV = ""
