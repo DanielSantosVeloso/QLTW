@@ -87,6 +87,7 @@ class ProblemasActivity : AppCompatActivity() {
         }
     }
 
+
     private fun changePerguntas() {
         val probAtual = problemas[contador]
         when (contador) {
@@ -117,9 +118,8 @@ class ProblemasActivity : AppCompatActivity() {
     }
 
     private fun changeDescricao() {
-        val probAtual = problemas[contador]
-        val descAtual = descricoes[problemaSelecionado]
-        when (problemaSelecionado) {
+        val descAtual = descricoes[contador]
+        when (contador) {
             0 -> {
                 descricao.text = descAtual.descricao1
             }
