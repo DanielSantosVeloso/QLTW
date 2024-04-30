@@ -41,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
         val email = EmailLogin.text.toString()
         val password = senhaLogin.text.toString()
         val validando = validacao(email, password)
-
         if(validando){
             val usuarioExiste = sqlHelper.lerUsuario(password,email)
             if(usuarioExiste){

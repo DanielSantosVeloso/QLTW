@@ -62,12 +62,11 @@ class sqlHelper(private val context: Context):
         cursor.close()
         return usuarioExiste
     }
-    fun existeUsuario(email: String): Boolean
-    {
+    fun existeUsuario(email: String): Boolean {
         val db = readableDatabase
         val selection = "$COLUMN_EMAIL = ?"
         val selectionArgs = arrayOf(email)
-        val cursor = db.query(TABLE_NAME,null, selection,selectionArgs, null, null, null)
+        val cursor = db.query(TABLE_NAME, null, selection, selectionArgs, null, null, null)
         val usuarioExiste = cursor.count > 0
         cursor.close()
         return usuarioExiste
