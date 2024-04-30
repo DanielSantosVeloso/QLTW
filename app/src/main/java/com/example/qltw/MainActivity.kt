@@ -28,15 +28,16 @@ class MainActivity : AppCompatActivity() {
     var contador=0
     var saidaCheckV = ""
     var chegadaCheckV = ""
+    var valorCheckV = ""
     var contadorCheckV = ""
     private lateinit var textSaidaExibir:TextView
     private lateinit var textChegadaExibir:TextView
     private lateinit var textNomeExibir:TextView
-    private val ticket =(listOf(
-    ticket("SP","RJ","1500"),
+    private val ticket = listOf(
+        ticket("SP","RJ","1500"),
         ticket("FAR","MG","2500"),
         ticket("GO","MA","4000"),
-    ))
+    )
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonProblemas.setOnClickListener{
-            verProblemas(saidaCheckV, chegadaCheckV, contadorCheckV)
+            verProblemas(saidaCheckV, chegadaCheckV, valorCheckV, contador)
         }
 
         //botão de menu
@@ -165,11 +166,12 @@ class MainActivity : AppCompatActivity() {
     private fun changeTicket(){
         //escolhendo texto do ticket
         val textAtual = ticket[contador]
+        contadorCheckV = contador.toString()
         when(contador) {
             0 -> {
                 saidaCheckV = textAtual.saida
                 chegadaCheckV = textAtual.chegada
-                contadorCheckV = textAtual.valor
+                valorCheckV = textAtual.valor
                 textSaidaExibir.text = textAtual.saida.toString()
                 textChegadaExibir.text = textAtual.chegada.toString()
                 textNomeExibir.text = textAtual.valor.toString()
@@ -178,7 +180,7 @@ class MainActivity : AppCompatActivity() {
             1 -> {
                 saidaCheckV = textAtual.saida
                 chegadaCheckV = textAtual.chegada
-                contadorCheckV = textAtual.valor
+                valorCheckV = textAtual.valor
                 textChegadaExibir.text = textAtual.chegada.toString()
                 textSaidaExibir.text = textAtual.saida.toString()
                 textNomeExibir.text = textAtual.valor.toString()
@@ -187,7 +189,7 @@ class MainActivity : AppCompatActivity() {
             2 -> {
                 saidaCheckV = textAtual.saida
                 chegadaCheckV = textAtual.chegada
-                contadorCheckV = textAtual.valor
+                valorCheckV = textAtual.valor
                 textSaidaExibir.text = textAtual.saida.toString()
                 textChegadaExibir.text = textAtual.chegada.toString()
                 textNomeExibir.text = textAtual.valor.toString()
@@ -195,10 +197,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun verProblemas(saidaCheck: String, chegadaCheck: String, contadorCheck: String){
+    private fun verProblemas(saidaCheck: String, chegadaCheck: String, valorCheck: String, contadorCheck: Int){
         val intent = Intent(applicationContext, ProblemasActivity::class.java)
         intent.putExtra("saida", saidaCheck)
         intent.putExtra("chegada", chegadaCheck)
+        intent.putExtra("valor", valorCheck)
         intent.putExtra("contador", contadorCheck)
         startActivity(intent)
         finish()

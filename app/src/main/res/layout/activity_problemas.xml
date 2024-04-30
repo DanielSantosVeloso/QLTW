@@ -120,7 +120,7 @@
         android:hint="Brutal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
         app:layout_constraintVertical_bias="0.0"
@@ -130,15 +130,54 @@
         android:id="@+id/problema2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="145dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="196dp"
+        android:layout_marginTop="8dp"
         android:hint="Manzinho"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-        app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/problema1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/problema1"
+        app:layout_constraintTop_toBottomOf="@+id/problema1"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/problema3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Fade"
+        app:layout_constraintEnd_toEndOf="@+id/problema2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/problema2"
+        app:layout_constraintTop_toBottomOf="@+id/problema2" />
+
+    <TextView
+        android:id="@+id/problema4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Nami"
+        app:layout_constraintEnd_toEndOf="@+id/problema3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/problema3"
+        app:layout_constraintTop_toBottomOf="@+id/problema3" />
+
+    <TextView
+        android:id="@+id/problema5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Gwen"
+        app:layout_constraintEnd_toEndOf="@+id/problema4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/problema4"
+        app:layout_constraintTop_toBottomOf="@+id/problema4" />
+
+    <Button
+        android:id="@+id/buttonVoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="609dp"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

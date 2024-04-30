@@ -1,6 +1,9 @@
 package com.example.qltw
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +15,21 @@ class ProblemasActivity : AppCompatActivity() {
     private lateinit var chegadaV: TextView
     private lateinit var valorV: TextView
     private lateinit var sqlHelper: sqlHelper
+    private lateinit var problema1:TextView
+    private lateinit var problema2:TextView
+    private lateinit var problema3:TextView
+    private lateinit var problema4:TextView
+    private lateinit var problema5:TextView
+    private lateinit var buttonVoltar:Button
+    private var contador = 0
+
+    private val problemas = listOf(
+        problemas("Texto1", "Texto2", "Texto3", "Texto4", "Texto5"),
+        problemas("a", "a", "a", "a", "a"),
+        problemas("b", "b", "b", "b", "b"),
+    )
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,16 +43,56 @@ class ProblemasActivity : AppCompatActivity() {
         saidaV = findViewById(R.id.textSaidaProblema)
         chegadaV = findViewById(R.id.textoChegadaProblema)
         valorV = findViewById(R.id.textValorProblema)
+        problema1 = findViewById(R.id.problema1)
+        problema2 = findViewById(R.id.problema2)
+        problema3 = findViewById(R.id.problema3)
+        problema4 = findViewById(R.id.problema4)
+        problema5 = findViewById(R.id.problema5)
+        buttonVoltar = findViewById(R.id.buttonVoltar)
 
         //recebendo os dados de MainActivity
         val dados: Bundle? = intent.extras
         val saida = dados?.getString("saida")
         val chegada = dados?.getString("chegada")
-        val contador = dados?.getString("contador")
+        val valor = dados?.getString("valor")
+        contador = dados?.getInt("contador")!!
 
         saidaV.text = saida
         chegadaV.text = chegada
-        valorV.text = contador
+        valorV.text = valor
+        changePerguntas()
 
+        buttonVoltar.setOnClickListener{
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
+    private fun changePerguntas(){
+        val probAtual = problemas[contador]
+        when(contador) {
+            0 -> {
+                problema1.text = probAtual.texto1
+                problema2.text = probAtual.texto2
+                problema3.text = probAtual.texto3
+                problema4.text = probAtual.texto4
+                problema5.text = probAtual.texto5
+            }
+            1 -> {
+                problema1.text = probAtual.texto1
+                problema2.text = probAtual.texto2
+                problema3.text = probAtual.texto3
+                problema4.text = probAtual.texto4
+                problema5.text = probAtual.texto5
+            }
+            2 -> {
+                problema1.text = probAtual.texto1
+                problema2.text = probAtual.texto2
+                problema3.text = probAtual.texto3
+                problema4.text = probAtual.texto4
+                problema5.text = probAtual.texto5
+            }
+        }
     }
 }
