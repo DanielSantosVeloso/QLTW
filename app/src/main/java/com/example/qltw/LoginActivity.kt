@@ -29,12 +29,12 @@ class LoginActivity : AppCompatActivity() {
             val  intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
             finish()
-    }
+        }
         val Logar: Button = findViewById(R.id.Logar)
         Logar.setOnClickListener{
             loginBase()
-}
-}
+        }
+    }
     private fun loginBase() {
         val EmailLogin:EditText = findViewById(R.id.editEmail)
         val senhaLogin:EditText = findViewById(R.id.editSenha)
