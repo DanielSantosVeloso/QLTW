@@ -4,8 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -22,8 +24,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textChegada : EditText
     private lateinit var buttonNext : ImageButton
     private lateinit var buttonBefore : ImageButton
+    private lateinit var buttonProblemas : Button
     lateinit var toggle: ActionBarDrawerToggle
     var contador=0
+    var saidaCheckV = ""
+    var chegadaCheckV = ""
+    var contadorCheckV = ""
+    private lateinit var textSaidaExibir:TextView
+    private lateinit var textChegadaExibir:TextView
+    private lateinit var textNomeExibir:TextView
+    private val ticket =(listOf(
+    ticket("SP","RJ","1500"),
+        ticket("FAR","MG","2500"),
+        ticket("GO","MA","4000"),
+    ))
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,16 +47,27 @@ class MainActivity : AppCompatActivity() {
 
         textSaida = findViewById(R.id.textSaida)
         textChegada = findViewById(R.id.textChegada)
+        textSaidaExibir =findViewById(R.id.textSaidaExibir)
+        textChegadaExibir = findViewById(R.id.textChegadaExibir)
+        textNomeExibir = findViewById(R.id.textNomeExibir)
+        buttonProblemas = findViewById(R.id.buttonProblemas)
 
         buttonNext = findViewById(R.id.Button_next)
         buttonBefore = findViewById(R.id.Button_before)
         buttonNext.setOnClickListener{
            next()
+            changeTicket()
         }
         buttonBefore.setOnClickListener{
            before()
+            changeTicket()
         }
 
+        buttonProblemas.setOnClickListener{
+            verProblemas(saidaCheckV, chegadaCheckV, contadorCheckV)
+        }
+
+        //botão de menu
         val buttonMenu : ImageButton = findViewById(R.id.buttonMenu)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
@@ -71,11 +96,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        changeTicket()
     }
 
     //recebendo os dados escritos pelo usuario
@@ -84,7 +111,7 @@ class MainActivity : AppCompatActivity() {
         val validChegada = textChegada.text.toString()
         val validando = validacao(validSaida, validChegada)
         if(validando){
-            enviarParaProblemas(validSaida, validChegada)
+            //enviarParaProblemas(validSaida, validChegada)
         }else{
             Toast.makeText(this, "Preencha os campos de Saída e Chegada", Toast.LENGTH_SHORT).show()
         }
@@ -97,6 +124,7 @@ class MainActivity : AppCompatActivity() {
         return validado
     }
 
+    /* Nao é mais utilizado
     //enviando para a tela de compra
     private fun enviarParaProblemas(saidaCheck: String, chegadaCheck: String){
         val intent = Intent(applicationContext, ProblemasActivity::class.java)
@@ -105,10 +133,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+     */
 
     //Botao next, passa para o proximo ticket
     private fun next(){
-        if(contador>=3) {
+        if(contador>=2) {
         Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
         }
         else{
@@ -132,6 +161,47 @@ class MainActivity : AppCompatActivity() {
     //Precisa de comentario? Só um botao que volta pro Login
     fun voltar(view: View){
         val intent = Intent(applicationContext, LoginActivity::class.java)
+        finish()
+    }
+    private fun changeTicket(){
+        //escolhendo texto do ticket
+        val textAtual = ticket[contador]
+        when(contador) {
+            0 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                contadorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+
+            1 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                contadorCheckV = textAtual.valor
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textSaidaExibir.text = textAtual.saida.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+
+            2 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                contadorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+        }
+    }
+
+    private fun verProblemas(saidaCheck: String, chegadaCheck: String, contadorCheck: String){
+        val intent = Intent(applicationContext, ProblemasActivity::class.java)
+        intent.putExtra("saida", saidaCheck)
+        intent.putExtra("chegada", chegadaCheck)
+        intent.putExtra("contador", contadorCheck)
+        startActivity(intent)
         finish()
     }
 }

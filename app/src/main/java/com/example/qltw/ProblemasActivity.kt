@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 class ProblemasActivity : AppCompatActivity() {
     private lateinit var saidaV: TextView
     private lateinit var chegadaV: TextView
-    private lateinit var usernameV: TextView
+    private lateinit var valorV: TextView
     private lateinit var sqlHelper: sqlHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,17 +22,19 @@ class ProblemasActivity : AppCompatActivity() {
             insets
         }
 
-        saidaV = findViewById(R.id.textSaidaCompra)
-        chegadaV = findViewById(R.id.textoChegadaCompra)
-        usernameV = findViewById(R.id.textValorCompra)
+        saidaV = findViewById(R.id.textSaidaProblema)
+        chegadaV = findViewById(R.id.textoChegadaProblema)
+        valorV = findViewById(R.id.textValorProblema)
 
         //recebendo os dados de MainActivity
         val dados: Bundle? = intent.extras
         val saida = dados?.getString("saida")
         val chegada = dados?.getString("chegada")
+        val contador = dados?.getString("contador")
 
         saidaV.text = saida
         chegadaV.text = chegada
+        valorV.text = contador
 
     }
 }
