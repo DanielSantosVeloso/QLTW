@@ -3,17 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <item android:id="@+id/nav_inicial"
-        android:title="Inicial"
-        app:showAsAction="never"
-        />
-
-    <item android:id="@+id/nav_carrinho"
-        android:title="Carrinho"
-        app:showAsAction="never"
-
-        />
-
     <item
         android:id="@+id/nav_sair"
         android:title="Sair"

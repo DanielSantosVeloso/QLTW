@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="411dp"
-        android:layout_height="285dp"
+        android:layout_width="407dp"
+        android:layout_height="330dp"
         android:layout_marginTop="144dp"
         android:scaleType="fitXY"
         android:src="@drawable/image_removebg_preview"
@@ -36,16 +36,15 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="412dp"
-        android:layout_height="298dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="407dp"
+        android:layout_height="277dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.557"
         app:srcCompat="@drawable/image_removebg_preview"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="2dp" />
 
     <TextView
         android:id="@+id/descricao"
@@ -55,9 +54,9 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="37dp"
         android:hint="Após selecionar qual problema queira ver, os detalhes aparecerão aqui."
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7"
         app:layout_constraintVertical_bias="0.0"
@@ -96,16 +95,16 @@
 
     <TextView
         android:id="@+id/textoChegadaProblema"
-        android:layout_width="68dp"
+        android:layout_width="84dp"
         android:layout_height="32dp"
         android:hint="Chegada"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="@+id/textSaidaProblema"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textSaidaProblema"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.399" />
+        app:layout_constraintVertical_bias="0.382" />
 
     <TextView
         android:id="@+id/textValorProblema"
@@ -119,45 +118,45 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toStartOf="@+id/imageView10"
-        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintHorizontal_bias="0.624"
         app:layout_constraintStart_toStartOf="@+id/textoChegadaProblema"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="282dp"
-        android:layout_height="193dp"
+        android:layout_width="277dp"
+        android:layout_height="368dp"
         android:layout_marginTop="49dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:src="@drawable/baseline_rectangle_24"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.932"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.724"
         tools:ignore="DuplicateIds,MissingConstraints" />
 
     <TextView
         android:id="@+id/textSaidaProblema"
-        android:layout_width="68dp"
-        android:layout_height="32dp"
+        android:layout_width="69dp"
+        android:layout_height="30dp"
         android:hint="Saida"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.272" />
+        app:layout_constraintVertical_bias="0.253" />
 
     <Button
         android:id="@+id/problemaB1"
         android:layout_width="224dp"
-        android:layout_height="34dp"
+        android:layout_height="48dp"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="31dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00000000"
@@ -167,6 +166,7 @@
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toTopOf="@+id/imageView10"
         app:strokeColor="#00F80000"
@@ -191,7 +191,7 @@
     <Button
         android:id="@+id/problemaB2"
         android:layout_width="224dp"
-        android:layout_height="33dp"
+        android:layout_height="48dp"
         android:background="#00A33838"
         android:backgroundTint="#00171616"
         android:hint="Sample"
@@ -214,7 +214,7 @@
     <Button
         android:id="@+id/problemaB3"
         android:layout_width="224dp"
-        android:layout_height="33dp"
+        android:layout_height="48dp"
         android:background="#00FFFFFF"
         android:hint="Sample"
         android:textAlignment="viewStart"
@@ -228,7 +228,7 @@
     <Button
         android:id="@+id/problemaB5"
         android:layout_width="224dp"
-        android:layout_height="33dp"
+        android:layout_height="48dp"
         android:background="#00FFFFFF"
         android:hint="Sample"
         android:textAlignment="viewStart"
@@ -256,7 +256,7 @@
         android:id="@+id/textView6"
         android:layout_width="89dp"
         android:layout_height="23dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="64dp"
         android:text="Valor:"
         android:textColor="#E2141840"
         android:textSize="16sp"
@@ -286,14 +286,15 @@
         android:layout_width="0dp"
         android:layout_height="148dp"
         android:layout_marginStart="-100dp"
-        android:layout_marginTop="656dp"
         android:layout_marginEnd="-100dp"
         android:contentDescription="next"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/image_removebg_preview" />
 
     <TextView

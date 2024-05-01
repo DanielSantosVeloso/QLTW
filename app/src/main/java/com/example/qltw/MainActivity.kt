@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonNext : ImageButton
     private lateinit var buttonBefore : ImageButton
     private lateinit var buttonProblemas : Button
+    private lateinit var buttonProcura:Button
+    var contProc2 = 0
     var contador=0
     var saidaCheckV = ""
     var chegadaCheckV = ""
@@ -37,6 +39,23 @@ class MainActivity : AppCompatActivity() {
         ticket("SP","RJ","1500"),
         ticket("FAR","MG","2500"),
         ticket("GO","MA","4000"),
+        ticket("AL","AP","3400"),
+        ticket("AM","CE","5000"),
+        ticket("DF","PR","6000"),
+        ticket("PE","PA","7500"),
+        ticket("SC","TO","2000"),
+        ticket("SE","RO","3000"),
+        ticket("RR","RN","7000"),
+        ticket("RJ","SP","1500"),
+        ticket("MG","FAR","2500"),
+        ticket("MA","GO","4000"),
+        ticket("AP","AL","3400"),
+        ticket("CE","AM","5000"),
+        ticket("PR","DF","6000"),
+        ticket("PA","PE","7500"),
+        ticket("TO","SC","2000"),
+        ticket("RO","SE","3000"),
+        ticket("RN","RR","7000"),
     )
 
     @SuppressLint("MissingInflatedId")
@@ -51,9 +70,11 @@ class MainActivity : AppCompatActivity() {
         textChegadaExibir = findViewById(R.id.textChegadaExibir)
         textNomeExibir = findViewById(R.id.textNomeExibir)
         buttonProblemas = findViewById(R.id.buttonProblemas)
-
+        buttonProcura = findViewById(R.id.buttonProcurar)
         buttonNext = findViewById(R.id.Button_next)
         buttonBefore = findViewById(R.id.Button_before)
+
+
         buttonNext.setOnClickListener{
            next()
             changeTicket()
@@ -66,6 +87,9 @@ class MainActivity : AppCompatActivity() {
         buttonProblemas.setOnClickListener{
             verProblemas(saidaCheckV, chegadaCheckV, valorCheckV, contador)
         }
+        buttonProcura.setOnClickListener {
+            ProcuraTicket()
+        }
 
         //botão de menu
         val buttonMenu : ImageButton = findViewById(R.id.buttonMenu)
@@ -75,8 +99,6 @@ class MainActivity : AppCompatActivity() {
         navView.visibility = View.GONE
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.nav_carrinho -> Toast.makeText(this, "Carrinho", Toast.LENGTH_SHORT).show()
-                R.id.nav_inicial -> Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show()
                 R.id.nav_sair -> {
                     Toast.makeText(this, "Voltando para a tela de Login", Toast.LENGTH_SHORT).show()
                     val  intent = Intent(this, LoginActivity::class.java)
@@ -137,23 +159,19 @@ class MainActivity : AppCompatActivity() {
 
     //Botao next, passa para o proximo ticket
     private fun next(){
-        if(contador>=2) {
-        Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
+        if(contador>=19) {
         }
         else{
             contador++
-            Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
         }
     }
 
     //Botao before, volta para o ticket anterior
     private fun before(){
         if(contador<=0){
-            Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
         }
         else{
             contador--
-            Toast.makeText(this, "$contador",Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -164,6 +182,37 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun ProcuraTicket(){
+
+        var achou = 0
+        val Saidatextinho = textSaida.text.toString()
+        val Chegadatextinho = textChegada.text.toString()
+
+        for(contProc in 0..19 ){
+
+            val contAtual = ticket[contProc2]
+
+            if(Saidatextinho == contAtual.saida && Chegadatextinho == contAtual.chegada) {
+                contador = contProc2
+                changeTicket()
+                achou = 1
+
+            }
+            else{
+                contProc2++
+
+            }
+        }
+        if(achou == 0){
+
+            Toast.makeText(this,"Ticket não disponivel",Toast.LENGTH_SHORT).show()
+        }
+        contProc2 = 0
+        achou = 0
+
+
+
+    }
     private fun changeTicket(){
         //escolhendo texto do ticket
         val textAtual = ticket[contador]
@@ -195,6 +244,143 @@ class MainActivity : AppCompatActivity() {
                 textChegadaExibir.text = textAtual.chegada.toString()
                 textNomeExibir.text = textAtual.valor.toString()
             }
+            3 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            4 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            5 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            6 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            7 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            8 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            9 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            10 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            11 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            12 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            13 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            14 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            15 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            16 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            17 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            18 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+            19 -> {
+                saidaCheckV = textAtual.saida
+                chegadaCheckV = textAtual.chegada
+                valorCheckV = textAtual.valor
+                textSaidaExibir.text = textAtual.saida.toString()
+                textChegadaExibir.text = textAtual.chegada.toString()
+                textNomeExibir.text = textAtual.valor.toString()
+            }
+
         }
     }
 
