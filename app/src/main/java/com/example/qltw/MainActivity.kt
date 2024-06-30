@@ -1,7 +1,9 @@
 package com.example.qltw
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -26,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonBefore : ImageButton
     private lateinit var buttonProblemas : Button
     private lateinit var buttonProcura:Button
+
+    private lateinit var sharedPreferences: SharedPreferences
+
     var contProc2 = 0
     var contador=0
     var saidaCheckV = ""
@@ -74,6 +79,10 @@ class MainActivity : AppCompatActivity() {
         buttonNext = findViewById(R.id.Button_next)
         buttonBefore = findViewById(R.id.Button_before)
 
+        //Recebendo os dados do Cookie
+        sharedPreferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE)
+        val username = sharedPreferences.getString("username", null)
+        Toast.makeText(this, "$username", Toast.LENGTH_SHORT).show()
 
         buttonNext.setOnClickListener{
            next()

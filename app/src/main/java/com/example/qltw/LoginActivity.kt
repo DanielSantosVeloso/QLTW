@@ -1,6 +1,8 @@
 package com.example.qltw
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
@@ -23,6 +25,10 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,6 +37,9 @@ class LoginActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets}
+
+        sharedPreferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE)
+        editor = sharedPreferences.edit()
 
         editTextEmail = findViewById(R.id.editEmail)
         editTextPassword = findViewById(R.id.editSenha)
@@ -62,6 +71,9 @@ class LoginActivity : AppCompatActivity() {
                             .addOnSuccessListener { document ->
                                 if (document != null && document.exists()) {
                                     val name = document.getString("name")
+
+                                    editor.putString("username", name)
+                                    editor.apply()
 
                                     Toast.makeText(this, "Bem-vindo, $name", Toast.LENGTH_SHORT).show()
 
