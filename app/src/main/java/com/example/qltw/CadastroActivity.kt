@@ -2,6 +2,7 @@ package com.example.qltw
 
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -17,12 +18,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.firestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class CadastroActivity : AppCompatActivity() {
 
+    private lateinit var NomeUsuario: EditText
+    private lateinit var passwordUsuario: EditText
+    private lateinit var emailUsuario: EditText
 
-    private lateinit var sqlHelper: sqlHelper
+    private lateinit var auth: FirebaseAuth
+    private var fbdb = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Initialize Firebase Auth
@@ -30,9 +40,6 @@ class CadastroActivity : AppCompatActivity() {
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_cadastro)
-
-        sqlHelper = sqlHelper(this)
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -44,49 +51,41 @@ class CadastroActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
 
-
-
         }
-        val cadastrar:Button = findViewById(R.id.cadastrar)
-        cadastrar.setOnClickListener{
-            cadastroBasedeDados()
+        val cadastrar: Button = findViewById(R.id.cadastrar)
+        cadastrar.setOnClickListener {
 
-        }
+            NomeUsuario = findViewById(R.id.Nomecad)
+            passwordUsuario = findViewById(R.id.Senha_cad)
+            emailUsuario = findViewById(R.id.Email_cad)
 
-    }
+            val username = NomeUsuario.text.toString()
+            val password = passwordUsuario.text.toString()
+            val email = emailUsuario.text.toString()
 
-    private fun cadastroBasedeDados() {
-        val NomeUsuario: EditText = findViewById(R.id.Nomecad)
-        val passwordUsuario: EditText = findViewById(R.id.Senha_cad)
-        val emailUsuario: EditText = findViewById(R.id.Email_cad)
-        val username = NomeUsuario.text.toString()
-        val password = passwordUsuario.text.toString()
-        val email = emailUsuario.text.toString()
+            val userMap = hashMapOf(
+                "nome" to username,
+                "senha" to password,
+                "email" to email,
+            )
 
-        val usuarioExiste = sqlHelper.existeUsuario(email)
-
-        val validando = validacao(email, password, username)
-
-        if(validando){
-            if(usuarioExiste){
-                Toast.makeText(this, "Email ja cadastrado", Toast.LENGTH_SHORT).show()
-            }else{
-                val colunaPeloID = sqlHelper.inserirUsuario(username, password, email)
-                if (colunaPeloID != -1L) {
-                    Toast.makeText(this, "Cadastro feito com sucesso", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Toast.makeText(this, "Erro no cadastro", Toast.LENGTH_SHORT).show()
+            fbdb.collection("users")
+                .add(userMap)
+                .addOnSuccessListener { documentReference ->
+                    Log.d(TAG, "Documento blablabla Certo - ID: ${documentReference.id}")
+                    Toast.makeText(this, "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show()
                 }
-            }
-        }else{
-            Toast.makeText(this, "Preencha os campos para realizar o Cadastro", Toast.LENGTH_SHORT).show()
+                .addOnFailureListener { e ->
+                    Log.w(TAG, "Errou feiao ala", e)
+                    Toast.makeText(this, "Falha ao Cadastrar", Toast.LENGTH_SHORT).show()
+                }
         }
-
     }
-    private fun validacao(emailUsuario: String, senhaUsuario: String, nomeUsuario: String):Boolean {
+    private fun validacao(
+        emailUsuario: String,
+        senhaUsuario: String,
+        nomeUsuario: String
+    ): Boolean {
         var validado = true
         if (emailUsuario.isBlank() || senhaUsuario.isBlank() || nomeUsuario.isBlank()) {
             validado = false
@@ -94,5 +93,4 @@ class CadastroActivity : AppCompatActivity() {
         return validado
     }
 }
-
 
