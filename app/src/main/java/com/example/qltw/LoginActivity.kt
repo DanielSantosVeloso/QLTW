@@ -14,6 +14,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.database.*
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -39,18 +43,20 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets}
 
+        //criacao de cookies
         sharedPreferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE)
         editor = sharedPreferences.edit()
 
+        //armazena o nome do usuario no momento que ele realizar login
         sharedPreferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE)
         val username = sharedPreferences.getString("username", null)
-        /*
-            if(username!=null){
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
-            //Toast.makeText(this, "$username", Toast.LENGTH_SHORT).show()
-         */
+
+        //mantem o usuario logado caso ja tenha realizado login
+        if(username!=null){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
 
         editTextEmail = findViewById(R.id.editEmail)
         editTextPassword = findViewById(R.id.editSenha)
@@ -90,6 +96,7 @@ class LoginActivity : AppCompatActivity() {
                                 if (document != null && document.exists()) {
                                     val name = document.getString("name")
 
+                                    //coleta o nome do usuario e armazena no cookie
                                     editor.putString("username", name)
                                     editor.apply()
 
@@ -111,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "Erro ao obter ID do usuário", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this, "Erro ao fazer login: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Erro ao fazer login. Tente novamente", Toast.LENGTH_SHORT).show()
                 }
             }
     }

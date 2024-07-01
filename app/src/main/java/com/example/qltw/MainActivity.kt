@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonNext : ImageButton
     private lateinit var buttonBefore : ImageButton
     private lateinit var buttonProblemas : Button
-    private lateinit var buttonProcura:Button
+    private lateinit var buttonProcura: Button
+    private lateinit var userConnected: TextView
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
@@ -79,18 +80,16 @@ class MainActivity : AppCompatActivity() {
         buttonProcura = findViewById(R.id.buttonProcurar)
         buttonNext = findViewById(R.id.Button_next)
         buttonBefore = findViewById(R.id.Button_before)
+        userConnected = findViewById(R.id.userConnected)
 
         //Recebendo os dados do Cookie
         sharedPreferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE)
         val username = sharedPreferences.getString("username", null)
-        Toast.makeText(this, "$username", Toast.LENGTH_SHORT).show()
 
-        /*
-                val editor = sharedPreferences.edit()
+        userConnected.text = username
 
-                editor.clear()
-                editor.apply()
-        */
+        //iniciando editor
+        val editor = sharedPreferences.edit()
 
         buttonNext.setOnClickListener{
            next()
@@ -117,6 +116,10 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_sair -> {
+                    Toast.makeText(this, "Deslogando...", Toast.LENGTH_SHORT).show()
+                    //limpa cookies
+                    editor.clear()
+                    editor.apply()
                     Toast.makeText(this, "Voltando para a tela de Login", Toast.LENGTH_SHORT).show()
                     val  intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)

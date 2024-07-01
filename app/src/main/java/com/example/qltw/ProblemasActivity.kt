@@ -1,7 +1,9 @@
 package com.example.qltw
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -14,11 +16,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import com.google.android.material.navigation.NavigationView
+import org.w3c.dom.Text
 
 class ProblemasActivity : AppCompatActivity() {
     private lateinit var saidaV: TextView
     private lateinit var chegadaV: TextView
     private lateinit var valorV: TextView
+    private lateinit var userConnected: TextView
 
     private lateinit var problemaB1: Button
     private lateinit var problemaB2: Button
@@ -28,6 +32,9 @@ class ProblemasActivity : AppCompatActivity() {
 
     private lateinit var descricao: TextView
     private lateinit var buttonVoltar: ImageButton
+
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
 
     private var contador = 0
     private var problemaSelecionado = 0
@@ -339,6 +346,15 @@ class ProblemasActivity : AppCompatActivity() {
         problemaB5 = findViewById(R.id.problemaB5)
         descricao = findViewById(R.id.descricao)
         buttonVoltar = findViewById(R.id.buttonVoltar)
+        userConnected = findViewById(R.id.userConnected2)
+
+        //cookie
+        var sharedPreferences = getSharedPreferences("Preferencias", MODE_PRIVATE)
+        val username = sharedPreferences.getString("username", null)
+        userConnected.text = username
+        //iniciando editor
+        val editor = sharedPreferences.edit()
+        editor.apply()
 
         //recebendo os dados de MainActivity
         val dados: Bundle? = intent.extras

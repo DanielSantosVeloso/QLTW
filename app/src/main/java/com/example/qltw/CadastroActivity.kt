@@ -19,6 +19,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthEmailException
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -31,6 +35,8 @@ class CadastroActivity : AppCompatActivity() {
     private lateinit var buttonRegister: Button
     private lateinit var mAuth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
+
+    private var mensagem = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,13 +56,18 @@ class CadastroActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
 
         buttonRegister.setOnClickListener {
+
             val email = editTextEmail.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
             val name = editTextName.text.toString().trim()
 
-
             if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(name) ) {
                 Toast.makeText(this, "Todos os campos são obrigatórios", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if(name.length > 40){
+                Toast.makeText(this, "O nome não pode ter mais de 40 caracteres", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -88,7 +99,13 @@ class CadastroActivity : AppCompatActivity() {
                             }
                     }
                 } else {
-                    Toast.makeText(this, "Erro ao registrar usuário: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    val errorMessage: String = when (task.exception) {
+                        is FirebaseAuthWeakPasswordException -> "A senha deve conter no mínimo 6 caracteres."
+                        is FirebaseAuthInvalidCredentialsException -> "Insira um email válido."
+                        is FirebaseAuthUserCollisionException -> "Email já cadastrado."
+                        else -> "Desconhecido. Por favor, tente novamente mais tarde."
+                    }
+                    Toast.makeText(this, "Erro ao registrar usuário: $errorMessage", Toast.LENGTH_SHORT).show()
                 }
             }
     }
