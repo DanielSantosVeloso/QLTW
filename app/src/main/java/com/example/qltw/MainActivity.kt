@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonProcura:Button
 
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
 
     var contProc2 = 0
     var contador=0
@@ -83,6 +84,13 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE)
         val username = sharedPreferences.getString("username", null)
         Toast.makeText(this, "$username", Toast.LENGTH_SHORT).show()
+
+        /*
+                val editor = sharedPreferences.edit()
+
+                editor.clear()
+                editor.apply()
+        */
 
         buttonNext.setOnClickListener{
            next()
